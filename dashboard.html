@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Support Console</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">Support Console <span>AI-triage</span></div>
+    <nav>
+      <a href="index.html">New complaint</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+    </nav>
+  </div>
+
+  <div class="page">
+    <div class="hero">
+      <h1>Complaint dashboard</h1>
+      <p>Live view of every complaint the AI engine has processed, grouped by category, urgency, and department.</p>
+    </div>
+
+    <div class="stat-strip" id="stat-strip">
+      <div class="stat"><div class="value" id="stat-total">–</div><div class="label">Total complaints</div></div>
+      <div class="stat high"><div class="value" id="stat-high">–</div><div class="label">High urgency</div></div>
+      <div class="stat"><div class="value" id="stat-categories">–</div><div class="label">Categories active</div></div>
+      <div class="stat"><div class="value" id="stat-departments">–</div><div class="label">Departments involved</div></div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <h2>Recent complaints</h2>
+        <div id="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Customer</th><th>Summary</th><th>Category</th><th>Urgency</th><th>Department</th>
+              </tr>
+            </thead>
+            <tbody id="complaints-tbody"></tbody>
+          </table>
+          <div class="empty-state" id="empty-state" style="display:none;">
+            No complaints yet — submit one from the "New complaint" tab.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel" style="margin-bottom: 20px;">
+          <h2>By category</h2>
+          <div id="chart-category"></div>
+        </div>
+        <div class="panel">
+          <h2>By urgency</h2>
+          <div id="chart-urgency"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if (typeof initDashboard === 'function') initDashboard();
+  </script>
+</body>
+</html>

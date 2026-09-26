@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit a Complaint — Support Console</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">Support Console <span>AI-triage</span></div>
+    <nav>
+      <a href="index.html" class="active">New complaint</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </div>
+
+  <div class="page">
+    <div class="hero">
+      <h1>Log a customer complaint</h1>
+      <p>The AI engine categorizes it, scores urgency, writes a summary, drafts a reply, and routes it to the right department — instantly.</p>
+    </div>
+
+    <div class="form-panel">
+      <form id="complaint-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="customer">Customer name</label>
+            <input type="text" id="customer" placeholder="e.g. Rohan Mehta">
+          </div>
+          <div class="field">
+            <label for="order_id">Order ID (optional)</label>
+            <input type="text" id="order_id" placeholder="e.g. ORD-10234">
+          </div>
+        </div>
+        <div class="field">
+          <label for="text">Complaint</label>
+          <textarea id="text" rows="5" placeholder="Paste or type the customer's message here..." required></textarea>
+        </div>
+        <button type="submit" class="submit" id="submit-btn">Analyze complaint</button>
+        <div class="error-msg" id="error-msg"></div>
+      </form>
+    </div>
+
+    <div class="result-card" id="result-card">
+      <div class="row"><div class="k">Category</div><div id="r-category"></div></div>
+      <div class="row"><div class="k">Urgency</div><div id="r-urgency"></div></div>
+      <div class="row"><div class="k">Summary</div><div id="r-summary"></div></div>
+      <div class="row"><div class="k">Department</div><div id="r-department"></div></div>
+      <div class="row"><div class="k">Suggested action</div><div id="r-action"></div></div>
+      <div class="row" style="flex-direction: column;">
+        <div class="k" style="margin-bottom: 8px;">Draft reply</div>
+        <div class="reply-box" id="r-reply"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
